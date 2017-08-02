@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://demo.litecart.net/" />
+<title>BuyDuck</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">BuyDuck</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/en/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.floor(1 + Math.random()*15)</td>
+	<td>amount</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.image.img-responsive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.image.img-responsive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=options[Size]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=div.col-sm-halfs.col-md-thirds &gt; div.price-wrapper &gt; strong.campaign-price</td>
+	<td>lll</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>${amount}*'${lll}'.substring(1)</td>
+	<td>price</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=h1.title</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=options[Size]</td>
+	<td>label=Small</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=quantity</td>
+	<td>${amount}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=add_cart_product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='cart']/a/div/div[2]</td>
+	<td>${amount} item(s) - $${price}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.image &gt; div.content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//a[contains(text(),'${title}')]</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=remove_cart_item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=remove_cart_item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.cart a[href=&quot;http://demo.litecart.net/en/&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.cart a[href=&quot;http://demo.litecart.net/en/&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#rslides1_s0 &gt; img</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
