@@ -7,11 +7,13 @@ public class PageWithIphoneTest {
 
     private WebDriver driver;
     PageWithIphone pwi;
+    PageWithIphoneCart pwiCart;
 
     @BeforeSuite()
     public void beforeSuite(){
         driver = new FirefoxDriver();
         pwi = new PageWithIphone(driver);
+        pwiCart = new PageWithIphoneCart(driver);
         System.setProperty("webdriver.firefox.marionette", "C:\\ll\\geckodrivergeckodriver.exe");
     }
 
@@ -23,28 +25,28 @@ public class PageWithIphoneTest {
 
         pwi.clickBuyButton();
 
-        pwi.waitForPopUp();
+        pwiCart.waitForPopUp();
 
-        String goodsLinkText = pwi.getNameProduct();
+        String goodsLinkText = pwiCart.getNameProduct();
 
-        pwi.clickOnCloseButton();
+        pwiCart.clickOnCloseButton();
 
         pwi.clickOnCartWithProd();
 
-        pwi.waitForPopUp();
+        pwiCart.waitForPopUp();
 
-        Assert.assertTrue(goodsLinkText.equals(pwi.getNameProduct()));
+        Assert.assertTrue(goodsLinkText.equals(pwiCart.getNameProduct()));
 
-        pwi.clickOnFirstBtnDel();
-        pwi.clickOnSecondBtnDel();
+        pwiCart.clickOnFirstBtnDel();
+        pwiCart.clickOnSecondBtnDel();
 
-        Assert.assertTrue(pwi.emptyCartDispl());
+        Assert.assertTrue(pwiCart.emptyCartDispl());
 
-        pwi.clickOnCloseBtnCart();
+        pwiCart.clickOnCloseBtnCart();
         pwi.clickOnEmptyCart();
-        pwi.waitForEmptyCart();
+        pwiCart.waitForEmptyCart();
 
-        Assert.assertTrue(pwi.emptyCartDispl());
+        Assert.assertTrue(pwiCart.emptyCartDispl());
     }
 
     @AfterSuite()
