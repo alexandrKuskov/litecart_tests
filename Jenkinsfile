@@ -4,15 +4,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                retry(3) {
-                  bat 'echo Hello'
-                }
+                echo 'hello'
             }
-        }
-    }
-    post {
-        always {
-           echo 'This will always run'
         }
     }
 }
